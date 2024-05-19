@@ -1,4 +1,4 @@
 # TonimatasDEV's Pterodactyl Eggs
 
 ### Eggs:
-- **[GitHub Runners](eggs/github-runner/README.md)**
+- **[GitHub Runners](eggs/github-runner)**
