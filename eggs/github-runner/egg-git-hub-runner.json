@@ -6,7 +6,7 @@
     },
     "exported_at": "2024-05-19T12:23:29+01:00",
     "name": "GitHub Runner",
-    "author": "amatascubero@gmail.com",
+    "author": "me@tonimatas.dev",
     "description": "Make you own self-hosted GitHub runner",
     "features": null,
     "docker_images": {
