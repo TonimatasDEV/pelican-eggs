@@ -1,0 +1,77 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PANEL",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2024-06-20T19:24:05+00:00",
+    "name": "GitHub Runner",
+    "author": "me@tonimatas.dev",
+    "uuid": "f32ca58f-1157-4c66-a4a7-4588724a792b",
+    "description": "Make you own self-hosted GitHub runner",
+    "features": null,
+    "docker_images": {
+        "ghcr.io\/parkervcp\/yolks:debian": "ghcr.io\/parkervcp\/yolks:debian"
+    },
+    "file_denylist": [],
+    "startup": ".\/run.sh",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"Listening for Jobs\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/ash\r\n# GitHub Runner Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\nmkdir -p \/mnt\/server\r\ncd \/mnt\/server\r\n\r\n# Get latest version version\r\nAPI_URL=\"https:\/\/api.github.com\/repos\/actions\/runner\/releases\/latest\"\r\nLATEST_VERSION=$(curl $API_URL | grep '\"tag_name\":' | cut -d '\"' -f 4 | sed 's\/^v\/\/')\r\n\r\n# Download GitHub Runner files\r\ncurl -o actions-runner-linux-x64-${LATEST_VERSION}.tar.gz -L https:\/\/github.com\/actions\/runner\/releases\/download\/v${LATEST_VERSION}\/actions-runner-linux-x64-${LATEST_VERSION}.tar.gz\r\n# Extract it\r\ntar xzf .\/actions-runner-linux-x64-${LATEST_VERSION}.tar.gz\r\n\r\n# Delete the tar.gz and .\/config.sh\r\nrm .\/actions-runner-linux-x64-${LATEST_VERSION}.tar.gz\r\nrm .\/config.sh\r\n\r\n# Download config.sh without permissions checker\r\ncurl -o config.sh -L https:\/\/gist.githubusercontent.com\/TonimatasDEV\/56ea8449f562a07fbe4d7e65f0509cc2\/raw\/bbb01aedd877e39cbb28b33bd11f719138af474f\/config.sh\r\n# Give permission to config.sh\r\nchmod +x .\/config.sh\r\n# Run config.sh with all variables\r\n.\/config.sh --unattended --url ${RUNNER_URL} --token ${RUNNER_TOKEN} --name ${RUNNER_NAME} --runnergroup ${RUNNER_GROUP}\r\n\r\n# Finish\r\necho -e \"Install Complete\"",
+            "container": "ghcr.io\/parkervcp\/yolks:debian",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "sort": null,
+            "name": "URL",
+            "description": "Runner URL",
+            "env_variable": "RUNNER_URL",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string|max:100",
+            "field_type": "text"
+        },
+        {
+            "sort": null,
+            "name": "Token",
+            "description": "Runner Token",
+            "env_variable": "RUNNER_TOKEN",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string|max:50",
+            "field_type": "text"
+        },
+        {
+            "sort": null,
+            "name": "Name",
+            "description": "Runner Name",
+            "env_variable": "RUNNER_NAME",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string|max:50",
+            "field_type": "text"
+        },
+        {
+            "sort": null,
+            "name": "Group",
+            "description": "Runner Group",
+            "env_variable": "RUNNER_GROUP",
+            "default_value": "Default",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string|max:50",
+            "field_type": "text"
+        }
+    ]
+}
