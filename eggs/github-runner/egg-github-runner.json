@@ -4,11 +4,11 @@
         "version": "PLCN_v1",
         "update_url": "https:\/\/github.com\/TonimatasDEV\/pelican-eggs\/raw\/refs\/heads\/main\/eggs\/github-runner\/egg-github-runner.json"
     },
-    "exported_at": "2025-05-19T18:11:00+00:00",
+    "exported_at": "2025-05-19T18:15:07+00:00",
     "name": "GitHub Runner",
     "author": "me@tonimatas.dev",
     "uuid": "f32ca58f-1157-4c66-a4a7-4588724a792b",
-    "description": "Make you own self-hosted GitHub runner",
+    "description": "Make your own self-hosted GitHub runner.",
     "tags": [],
     "features": [],
     "docker_images": {
