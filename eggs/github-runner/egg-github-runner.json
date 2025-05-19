@@ -2,9 +2,9 @@
     "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PANEL",
     "meta": {
         "version": "PLCN_v1",
-        "update_url": "https:\/\/github.com\/TonimatasDEV\/pelican-eggs\/raw\/refs\/heads\/main\/eggs\/github-runner\/egg-github-runner.json"
+        "update_url": "https:\/\/github.com\/TonimatasDEV\/pelican-eggs\/raw\/main\/eggs\/github-runner\/egg-github-runner.json"
     },
-    "exported_at": "2025-05-19T18:15:07+00:00",
+    "exported_at": "2025-05-19T18:19:25+00:00",
     "name": "GitHub Runner",
     "author": "me@tonimatas.dev",
     "uuid": "f32ca58f-1157-4c66-a4a7-4588724a792b",
